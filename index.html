@@ -13,16 +13,19 @@
 
   <style>
     :root {
-      --bg: #0c0e12;
-      --card-bg: #14171f;
-      --card-hover: #1b202b;
-      --text: #f4f6f8;
-      --text-muted: #a2aab8; /* Meets WCAG AA contrast against --bg */
-      --accent: #3b82f6;
-      --accent-hover: #2563eb;
-      --accent-focus: #93c5fd;
-      --border: #262c38;
-      --success: #10b981;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --card-hover: #f1f5f9;
+      --text: #0f172a;           /* Deep slate, WCAG AAA compliant */
+      --text-muted: #475569;     /* 5.3:1 contrast ratio, WCAG AA compliant */
+      --accent: #1d4ed8;         /* High-contrast accessible cobalt blue */
+      --accent-hover: #1e40af;
+      --accent-focus: #2563eb;
+      --border: #e2e8f0;
+      --border-strong: #cbd5e1;
+      --badge-bg: #ecfdf5;
+      --badge-text: #065f46;
+      --badge-border: #a7f3d0;
       --font-body: 'Plus Jakarta Sans', sans-serif;
       --font-heading: 'Space Grotesk', sans-serif;
       --font-mono: 'Courier New', Courier, monospace;
@@ -53,7 +56,7 @@
       position: relative;
     }
 
-    /* Paper/Film Grain Texture */
+    /* Subtle Paper Texture Overlay */
     body::after {
       content: "";
       position: fixed;
@@ -63,11 +66,11 @@
       height: 100vh;
       pointer-events: none;
       z-index: 9999;
-      opacity: 0.03;
+      opacity: 0.02;
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
     }
 
-    /* Skip Navigation Link */
+    /* Screen-Reader Skip Link */
     .skip-link {
       position: absolute;
       top: -50px;
@@ -84,10 +87,10 @@
 
     .skip-link:focus {
       top: 20px;
-      outline: 3px solid #fff;
+      outline: 3px solid #000;
     }
 
-    /* High-Visibility Keyboard Focus Rings */
+    /* Keyboard Focus Rings */
     a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
       outline: 3px solid var(--accent-focus);
       outline-offset: 3px;
@@ -104,7 +107,7 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(12, 14, 18, 0.92);
+      background: rgba(248, 250, 252, 0.92);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
     }
@@ -152,13 +155,13 @@
     .nav-links a {
       font-size: 0.95rem;
       color: var(--text-muted);
-      font-weight: 500;
+      font-weight: 600;
       text-decoration: none;
       transition: color 0.2s;
     }
 
     .nav-links a:hover {
-      color: #fff;
+      color: var(--text);
     }
 
     /* Buttons */
@@ -187,14 +190,14 @@
     }
 
     .btn-outline {
-      background: transparent;
-      border-color: var(--border);
+      background: #ffffff;
+      border-color: var(--border-strong);
       color: var(--text);
     }
 
     .btn-outline:hover {
-      border-color: var(--text-muted);
-      background: rgba(255, 255, 255, 0.04);
+      border-color: var(--text);
+      background: #f1f5f9;
     }
 
     /* Availability Indicator */
@@ -203,28 +206,28 @@
       align-items: center;
       gap: 8px;
       padding: 6px 14px;
-      background: rgba(16, 185, 129, 0.1);
-      border: 1px solid rgba(16, 185, 129, 0.35);
+      background: var(--badge-bg);
+      border: 1px solid var(--badge-border);
       border-radius: 999px;
       font-size: 0.85rem;
       font-weight: 600;
-      color: #34d399;
+      color: var(--badge-text);
       margin-bottom: 1.5rem;
     }
 
     .status-dot {
       width: 8px;
       height: 8px;
-      background-color: var(--success);
+      background-color: #059669;
       border-radius: 50%;
-      box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+      box-shadow: 0 0 0 0 rgba(5, 150, 105, 0.7);
       animation: pulse 2.2s infinite;
     }
 
     @keyframes pulse {
-      0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
-      70% { box-shadow: 0 0 0 9px rgba(16, 185, 129, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+      0% { box-shadow: 0 0 0 0 rgba(5, 150, 105, 0.7); }
+      70% { box-shadow: 0 0 0 9px rgba(5, 150, 105, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(5, 150, 105, 0); }
     }
 
     /* Hero Section */
@@ -244,7 +247,7 @@
 
     .hero h1 em {
       font-style: italic;
-      color: #93c5fd;
+      color: var(--accent);
     }
 
     .hero p {
@@ -261,22 +264,24 @@
       flex-wrap: wrap;
     }
 
-    /* Proof Metrics Strip */
+    /* Metrics Strip */
     .metrics-strip {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 1.5rem;
-      padding: 30px;
+      padding: 32px;
       background: var(--card-bg);
       border: 1px solid var(--border);
       border-radius: 12px;
       margin: 50px 0 80px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
     }
 
     .metric-item h3 {
       font-family: var(--font-heading);
       font-size: 2.2rem;
       margin-bottom: 4px;
+      color: var(--text);
     }
 
     .metric-item p {
@@ -298,6 +303,7 @@
       font-family: var(--font-heading);
       font-size: 2.2rem;
       margin-bottom: 0.5rem;
+      color: var(--text);
     }
 
     .section-subtitle {
@@ -314,8 +320,8 @@
     }
 
     .filter-btn {
-      background: transparent;
-      border: 1px solid var(--border);
+      background: #ffffff;
+      border: 1px solid var(--border-strong);
       color: var(--text-muted);
       padding: 9px 20px;
       border-radius: 6px;
@@ -327,8 +333,8 @@
     }
 
     .filter-btn.active, .filter-btn:hover {
-      color: #fff;
-      background: var(--card-bg);
+      color: #ffffff;
+      background: var(--accent);
       border-color: var(--accent);
     }
 
@@ -345,18 +351,20 @@
       overflow: hidden;
       display: flex;
       flex-direction: column;
-      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
     }
 
     .portfolio-card:hover {
       transform: translateY(-4px);
-      border-color: rgba(59, 130, 246, 0.4);
+      box-shadow: 0 12px 24px -10px rgba(0, 0, 0, 0.08);
+      border-color: var(--border-strong);
     }
 
     .card-media {
       width: 100%;
       height: 240px;
-      background: #191e28;
+      background: #f1f5f9;
       overflow: hidden;
       position: relative;
     }
@@ -382,7 +390,8 @@
     .spec-tag {
       font-family: var(--font-mono);
       font-size: 0.75rem;
-      color: #93c5fd;
+      color: var(--accent);
+      font-weight: 700;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       margin-bottom: 0.4rem;
@@ -392,6 +401,7 @@
       font-size: 1.25rem;
       margin-bottom: 0.5rem;
       font-family: var(--font-heading);
+      color: var(--text);
     }
 
     .card-body p {
@@ -414,6 +424,7 @@
       border-radius: 12px;
       overflow: hidden;
       background: var(--card-bg);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
     }
 
     .about-image-wrap img {
@@ -427,6 +438,7 @@
       padding: 1rem;
       text-align: center;
       border-top: 1px solid var(--border);
+      background: #ffffff;
     }
 
     .about-text p {
@@ -446,6 +458,7 @@
     .credentials-box h4 {
       font-family: var(--font-heading);
       margin-bottom: 0.75rem;
+      color: var(--text);
     }
 
     .credentials-box ul {
@@ -458,7 +471,7 @@
       margin-bottom: 0.5rem;
     }
 
-    /* Contact & Form Section */
+    /* Contact & Lead Section */
     .lead-section {
       display: grid;
       grid-template-columns: 1fr 1.25fr;
@@ -478,10 +491,11 @@
       align-items: center;
       gap: 10px;
       padding: 10px 16px;
-      border: 1px solid var(--border);
+      background: #ffffff;
+      border: 1px solid var(--border-strong);
       border-radius: 6px;
       font-size: 0.9rem;
-      font-weight: 500;
+      font-weight: 600;
       color: var(--text);
       text-decoration: none;
       transition: border-color 0.2s, background 0.2s;
@@ -489,7 +503,7 @@
 
     .social-btn:hover {
       border-color: var(--accent);
-      background: var(--card-bg);
+      background: #f1f5f9;
     }
 
     .social-btn svg, .social-btn img {
@@ -503,6 +517,7 @@
       border: 1px solid var(--border);
       border-radius: 12px;
       padding: 2.5rem;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
     }
 
     .form-row {
@@ -519,7 +534,7 @@
     label {
       display: block;
       font-size: 0.85rem;
-      font-weight: 600;
+      font-weight: 700;
       color: var(--text-muted);
       margin-bottom: 0.4rem;
       text-transform: uppercase;
@@ -528,13 +543,18 @@
 
     input, select, textarea {
       width: 100%;
-      background: #090b0e;
-      border: 1px solid var(--border);
+      background: #f8fafc;
+      border: 1px solid var(--border-strong);
       border-radius: 8px;
       padding: 12px 14px;
-      color: #fff;
+      color: var(--text);
       font-family: var(--font-body);
       font-size: 0.95rem;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      background: #ffffff;
+      border-color: var(--accent);
     }
 
     textarea {
@@ -548,6 +568,7 @@
       text-align: center;
       color: var(--text-muted);
       font-size: 0.85rem;
+      background: #ffffff;
     }
 
     @media (max-width: 860px) {
@@ -931,7 +952,7 @@
         <div class="about-grid">
           <div class="about-image-wrap">
             <!-- Profile Picture from assets/about/ -->
-            <img src="assets/about/profile.jpg" alt="Portrait of graphic designer Morgan McConnell" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'320\' height=\'380\' viewBox=\'0 0 320 380\'%3E%3Crect fill=\'%2314171f\' width=\'320\' height=\'380\'/%3E%3Ctext fill=\'%23a2aab8\' font-family=\'sans-serif\' font-size=\'16\' x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\'%3EProfile Photo%3C/text%3E%3C/svg%3E'" />
+            <img src="assets/about/profile.jpg" alt="Portrait of graphic designer Morgan McConnell" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'320\' height=\'380\' viewBox=\'0 0 320 380\'%3E%3Crect fill=\'%23e2e8f0\' width=\'320\' height=\'380\'/%3E%3Ctext fill=\'%23475569\' font-family=\'sans-serif\' font-size=\'16\' x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\'%3EProfile Photo%3C/text%3E%3C/svg%3E'" />
             <div class="about-meta">
               <a href="assets/documents/resume.pdf" class="btn btn-outline" style="width: 100%; font-size: 0.88rem;" download>
                 Download Morgan's Resume
@@ -978,7 +999,6 @@
             <!-- Social Media & Contact Links -->
             <div class="social-bar" aria-label="Direct Contact Links">
               <a href="https://www.linkedin.com/in/morgan-mcconnell-71b52313/" class="social-btn" target="_blank" rel="noopener noreferrer">
-                <!-- LinkedIn Icon (External file with inline fallback) -->
                 <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                   <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
                 </svg>
@@ -986,7 +1006,6 @@
               </a>
 
               <a href="mailto:contact@morganmcconnell.com" class="social-btn">
-                <!-- Email Placeholder Icon (Scalable, accessible vector SVG) -->
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <rect x="2" y="4" width="20" height="16" rx="2"></rect>
                   <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
