@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Morgan McConnell | Senior Graphic Designer & Brand Specialist</title>
+  <meta name="description" content="Senior Graphic Designer and Brand Specialist with 15+ years experience. Available for freelance branding, digital UI, and print collateral." />
+
+  <!-- Google Fonts: Space Grotesk + Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0c0e12;
+      --card-bg: #14171f;
+      --card-hover: #1b202b;
+      --text: #f4f6f8;
+      --text-muted: #a2aab8; /* Meets WCAG AA contrast against --bg */
+      --accent: #3b82f6;
+      --accent-hover: #2563eb;
+      --accent-focus: #93c5fd;
+      --border: #262c38;
+      --success: #10b981;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+      --font-heading: 'Space Grotesk', sans-serif;
+      --font-mono: 'Courier New', Courier, monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Accessibility: Respect Reduced Motion */
+    @media (prefers-reduced-motion: reduce) {
+      *, ::before, ::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      line-height: 1.6;
+      scroll-behavior: smooth;
+      position: relative;
+    }
+
+    /* Paper/Film Grain Texture */
+    body::after {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.03;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    }
+
+    /* Skip Navigation Link */
+    .skip-link {
+      position: absolute;
+      top: -50px;
+      left: 20px;
+      background: var(--accent);
+      color: #fff;
+      padding: 10px 16px;
+      font-weight: 700;
+      z-index: 10000;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: top 0.2s ease;
+    }
+
+    .skip-link:focus {
+      top: 20px;
+      outline: 3px solid #fff;
+    }
+
+    /* High-Visibility Keyboard Focus Rings */
+    a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+      outline: 3px solid var(--accent-focus);
+      outline-offset: 3px;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1160px;
+      margin: 0 auto;
+    }
+
+    /* Header & Navigation */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(12, 14, 18, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 74px;
+    }
+
+    .brand-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text);
+    }
+
+    .brand-link img {
+      width: 32px;
+      height: 32px;
+      object-fit: contain;
+    }
+
+    .logo-text {
+      font-family: var(--font-heading);
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      font-weight: 500;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: #fff;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: 1px solid transparent;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-hover);
+      transform: translateY(-1px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border-color: var(--border);
+      color: var(--text);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--text-muted);
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    /* Availability Indicator */
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #34d399;
+      margin-bottom: 1.5rem;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      background-color: var(--success);
+      border-radius: 50%;
+      box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+      animation: pulse 2.2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+      70% { box-shadow: 0 0 0 9px rgba(16, 185, 129, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 90px 0 50px;
+    }
+
+    .hero h1 {
+      font-family: var(--font-heading);
+      font-size: clamp(2.4rem, 5.5vw, 4.2rem);
+      line-height: 1.1;
+      font-weight: 700;
+      max-width: 940px;
+      margin-bottom: 1.25rem;
+      letter-spacing: -0.5px;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: #93c5fd;
+    }
+
+    .hero p {
+      color: var(--text-muted);
+      font-size: 1.2rem;
+      max-width: 720px;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    /* Proof Metrics Strip */
+    .metrics-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      padding: 30px;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      margin: 50px 0 80px;
+    }
+
+    .metric-item h3 {
+      font-family: var(--font-heading);
+      font-size: 2.2rem;
+      margin-bottom: 4px;
+    }
+
+    .metric-item p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    /* Section Styles */
+    section {
+      padding: 90px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .section-header {
+      margin-bottom: 2.5rem;
+    }
+
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: 2.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-subtitle {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+    }
+
+    /* Portfolio Tabs & Grid */
+    .filter-tabs {
+      display: flex;
+      gap: 0.75rem;
+      margin-bottom: 2.5rem;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      padding: 9px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 600;
+      font-family: var(--font-body);
+      transition: all 0.2s;
+    }
+
+    .filter-btn.active, .filter-btn:hover {
+      color: #fff;
+      background: var(--card-bg);
+      border-color: var(--accent);
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 2rem;
+    }
+
+    .portfolio-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s;
+    }
+
+    .portfolio-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(59, 130, 246, 0.4);
+    }
+
+    .card-media {
+      width: 100%;
+      height: 240px;
+      background: #191e28;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .card-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .portfolio-card:hover .card-media img {
+      transform: scale(1.04);
+    }
+
+    .card-body {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .spec-tag {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: #93c5fd;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.4rem;
+    }
+
+    .card-body h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+      font-family: var(--font-heading);
+    }
+
+    .card-body p {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      margin-bottom: 1.25rem;
+      flex-grow: 1;
+    }
+
+    /* About Section Layout */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 3.5rem;
+      align-items: start;
+    }
+
+    .about-image-wrap {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      background: var(--card-bg);
+    }
+
+    .about-image-wrap img {
+      width: 100%;
+      height: 380px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .about-meta {
+      padding: 1rem;
+      text-align: center;
+      border-top: 1px solid var(--border);
+    }
+
+    .about-text p {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .credentials-box {
+      margin-top: 2rem;
+      padding: 1.5rem;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+    }
+
+    .credentials-box h4 {
+      font-family: var(--font-heading);
+      margin-bottom: 0.75rem;
+    }
+
+    .credentials-box ul {
+      list-style: none;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    .credentials-box li {
+      margin-bottom: 0.5rem;
+    }
+
+    /* Contact & Form Section */
+    .lead-section {
+      display: grid;
+      grid-template-columns: 1fr 1.25fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .social-bar {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .social-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 16px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text);
+      text-decoration: none;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .social-btn:hover {
+      border-color: var(--accent);
+      background: var(--card-bg);
+    }
+
+    .social-btn svg, .social-btn img {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+    }
+
+    .inquiry-form {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2.5rem;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.25rem;
+    }
+
+    label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      background: #090b0e;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      color: #fff;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    footer {
+      padding: 40px 0;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 860px) {
+      .about-grid, .lead-section, .metrics-strip, .form-row {
+        grid-template-columns: 1fr;
+      }
+      .nav-links {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Screen-Reader Accessibility: Bypass Navigation -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Header -->
+  <header role="banner">
+    <div class="container">
+      <nav aria-label="Main Navigation">
+        <a href="#" class="brand-link" aria-label="Morgan McConnell Home">
+          <!-- Main Brand Logo from assets/brand/ -->
+          <img src="assets/brand/logo.svg" alt="" onerror="this.style.display='none'" />
+          <span class="logo-text">MORGAN McCONNELL</span>
+        </a>
+        <div class="nav-right">
+          <ul class="nav-links">
+            <li><a href="#work">Work</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="assets/documents/resume.pdf" target="_blank" rel="noopener noreferrer">Resume (PDF)</a></li>
+          </ul>
+          <a href="#contact" class="btn btn-primary" style="padding: 8px 18px; font-size: 0.9rem;">Start a Project</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- Hero Section -->
+    <div class="container">
+      <section class="hero" style="border-top: none;">
+        <!-- Lead-Gen Availability Indicator -->
+        <div class="status-badge" role="status" aria-live="polite">
+          <span class="status-dot" aria-hidden="true"></span>
+          Available for Freelance & Contract Projects
+        </div>
+
+        <h1>Crafting <em>Disciplined Brands</em> and High-Converting Digital Media.</h1>
+        <p>
+          Senior Graphic Designer and Brand Specialist with 15+ years of experience turning strategy into visual identities, digital platforms, and production-ready print collateral.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-primary">Book Freelance Project</a>
+          <a href="#work" class="btn btn-outline">Explore Selected Work</a>
+          <a href="assets/documents/resume.pdf" class="btn btn-outline" download>Download Resume</a>
+        </div>
+
+        <div class="metrics-strip" aria-label="Key Qualifications">
+          <div class="metric-item">
+            <h3>15+ Years</h3>
+            <p>Direct leadership in brand architecture and visual communications.</p>
+          </div>
+          <div class="metric-item">
+            <h3>Enterprise Proven</h3>
+            <p>Track record delivering for technology, retail, software, and commercial brands.</p>
+          </div>
+          <div class="metric-item">
+            <h3>Direct Access</h3>
+            <p>Work directly with a senior designer with fast turnaround and transparent scope.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Portfolio Section (8 Digital, 7 Logos, 8 Print) -->
+    <section id="work">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Selected Work</h2>
+          <p class="section-subtitle">Categorized archives spanning digital media, logo marks, and print collateral.</p>
+        </div>
+
+        <!-- Filter Controls -->
+        <div class="filter-tabs" role="tablist" aria-label="Portfolio Category Filters">
+          <button class="filter-btn active" role="tab" aria-selected="true" data-filter="all">All Disciplines</button>
+          <button class="filter-btn" role="tab" aria-selected="false" data-filter="digital">Digital Media</button>
+          <button class="filter-btn" role="tab" aria-selected="false" data-filter="logos">Logo Design</button>
+          <button class="filter-btn" role="tab" aria-selected="false" data-filter="print">Print Collateral</button>
+        </div>
+
+        <div class="portfolio-grid">
+
+          <!-- ================= DIGITAL MEDIA (8 Items) ================= -->
+          <article class="portfolio-card" data-category="digital">
+            <div class="card-media">
+              <img src="assets/media/digital/digital-01.jpg" alt="Responsive user interface design for web platform" loading="lazy" />
+            </div>
+            <div class="card-body">
+              <span class="spec-tag">FIGMA // WEB PLATFORM</span>
+              <h3>Responsive SaaS Portal</h3>
+              <p>Custom user interface layout structured for enterprise dashboard onboarding and metrics visualization.</p>
+              <a href="#contact" class="btn btn-outline" style="font-size: 0.85rem; padding: 6px 12px; width: fit-content;">Inquire About Web UI</a>
+            </div>
+          </article>
+
+          <article class="portfolio-card" data-category="digital">
+            <div class="card-media">
+              <img src="assets/media/digital/digital-02.jpg" alt="E-commerce conversion-focused landing page design" loading="lazy" />
+            </div>
+            <div class="card-body">
+              <span class="spec-tag">UI/UX // CONVERSION</span>
+              <h3>E-Commerce Experience</h3>
+              <p>High-converting direct-to-consumer store layout optimized for rapid checkout and mobile engagement.</p>
+              <a href="#contact" class="btn btn-outline" style="font-size: 0.85rem; padding: 6px 12px; width: fit-content;">Inquire About Web UI</a>
+            </div>
+          </article>
+
+          <article class="portfolio-card" data-category="digital">
+            <div class="card-media">
+              <img src="assets/media/digital/digital-03.jpg" alt="Digital marketing ad campaign display banners" loading="lazy" />
+            </div>
+            <div class="card-body">
+              <span class="spec-tag">CAMPAIGN // DISPLAY ADS</span>
+              <h3>Multi-Channel Ad Suite</h3>
+              <p>Scalable programmatic ad sets designed across multiple aspect ratios for customer acquisition.</p>
+              <a href="#contact" class="btn btn-outline" style="font-size: 0.85rem; padding: 6px 12px; width: fit-content;">Inquire About Web UI</a>
+            </div>
+          </article>
+
+          <article class="portfolio-card" data-category="digital">
+            <div class="card-media">
+              <img src="assets/media/digital/digital-04.jpg" alt="Interactive mobile app user interface wireframes" loading="lazy" />
+            </div>
+            <div class="card-body">
+              <span class="spec-tag">MOBILE // PROTO-SYSTEM</span>
+              <h3>Mobile Application Flow</h3>
+              <p>Clean navigational architecture and micro-interactions built for an iOS and Android experience.</p>
+              <a href="#contact" class="btn btn-outline" style="font-size: 0.85rem; padding: 6px 12px; width: fit-content;">Inquire About Web UI</a>
+            </div>
+          </article>
+
+          <article class="portfolio-card" data-category="digital">
+            <div class="card-media">
+              <img src="assets/media/digital/digital-05.jpg" alt="Corporate email newsletter layout system" loading="lazy" />
+            </div>
+            <div class="card-body">
+              <span class="spec-tag">EMAIL // CRM TEMPLATES</span>
+              <h3>Editorial Newsletter Suite</h3>
+              <p>Modular, responsive email marketing templates tested across standard Outlook and mobile mail clients.</p>
+              <a href="#contact" class="btn btn-outline" style="font-size: 0.85rem; padding: 6px 12px; width: fit-content;">Inquire About Web UI</a>
+            </div>
+          </article>
+
+          <article class="portfolio-card" data-category="digital">
+            <div class="card-media">
+              <img src="assets/media/digital/digital-06.jpg" alt="Social media creative brand kit layouts" loading="lazy" />
+            </div>
+            <div class="card-body">
+              <span class="spec-tag">SOCIAL // BRAND ASSETS</span>
+              <h3>Social Content Kit</h3>
+              <p>Cohesive carousel layouts, Instagram templates, and video title overlays for continuous brand publishing.</p>
+              <a href="#contact" class="btn btn-outline" style="font-size: 0.85rem; padding: 6px 12px; width: fit-content;">Inquire About Web UI</a>
+            </div>
+          </article>
+
+          <article class="portfolio-card" data-category="digital">
+            <div class="card-media">
+              <img src="assets/media/digital/digital-07.jpg" alt="Executive slide deck and presentation design system" loading="lazy" />
+            </div>
+            <div class="card-body">
+              <span class="spec-tag">KEYNOTE // PITCH DECK</span>
+              <h3>Executive Pitch System</h3>
+              <p>Investor deck and keynote presentation system featuring custom vector iconography and infographic charts.</p>
+              <a href="#contact" class="btn btn-outline" style="font-size: 0.85rem; padding: 6px 12px; width: fit-content;">Inquire About Web UI</a>
+            </div>
+          </article>
+
+          <article class="portfolio-card" data-category="digital">
+            <div class="card-media">
+              <img src="assets/media/digital/digital-08.jpg" alt="Product onboarding digital illustration and graphics" loading="lazy" />
+            </div>
+            <div class="card-body">
+              <span class="spec-tag">ILLUSTRATION // VECTOR</span>
+              <h3>Product Feature Graphics</h3>
+              <p>Technical vector graphics illustrating complex data integration flows for customer walkthroughs.</p>
+              <a href="#contact" class="btn btn-outline" style="font-size: 0.85rem; padding: 6px 12px; width: fit-content;">Inquire About Web UI</a>
+            </div>
+          </article>
+
+          <!-- ================= LOGO DESIGN (7 Items) ================= -->
+          <article class="portfolio-card" data-category="logos">
+            <div class="card-media">
+              <img src="assets/media/logos/logo-01.jpg" alt="Minimalist tech company monogram logo mark" loading="lazy" />
+            </div>
+            <div class="card-body">
+              <span class="spec-tag">VECTOR // MONOGRAM</span>
+              <h3>Apex Systems Mark</h3>
+              <p>Geometric lettermark and visual identity guidelines built for a data communications firm.</p>
+              <a href="#contact" class="btn btn-outline" style="font-size: 0.85rem; padding: 6px 12px; width: fit-content;">Inquire About Logos</a>
+            </div>
+          </article>
+
+          <article class="portfolio-card" data-category="logos">
+            <div class="card-media">
+              <img src="assets/media/logos/logo-02.jpg" alt="Luxury retail brand logotype and custom wordmark" loading="lazy" />
+            </div>
+            <div class="card-body">
+              <span class="spec-tag">TYPOGRAPHY // CUSTOM WORDMARK</span>
+              <h3>Solari Consumer Brand</h3>
+              <p>Hand-crafted typographic wordmark with optical kerning variations for packaging and signage.</p>
+              <a href="#contact" class="btn btn-outline" style="font-size: 0.85rem; padding: 6px 12px; width: fit-content;">Inquire About Logos</a>
+            </div>
+          </article>
+
+          <article class="portfolio-card" data-category="logos">
+            <div class="card-media">
+              <img src="assets/media/logos/logo-03.jpg" alt="Modern corporate seal and emblem design" loading="lazy" />
+            </div>
+            <div class="card-body">
+              <span class="spec-tag">IDENTITY // EMBLEM</span>
+              <h3>Vanguard Capital Emblem</h3>
+              <p>Contemporary emblem honoring heritage financial institutions while maintaining crisp mobile legibility.</p>
+              <a href="#contact" class="btn btn-outline" style="font-size: 0.85rem; padding: 6px 12px; width: fit-content;">Inquire About Logos</a>
+            </div>
+          </article>
+
+          <article class="portfolio-card" data-category="logos">
+            <div class="card-media">
+              <img src="assets/media/logos/logo-04.jpg" alt="Hospitality brand mascot mark and icon" loading="lazy" />
+            </div>
+            <div class="card-body">
+              <span class="spec-tag">ICONOGRAPHY // SYMBOL</span>
+              <h3>Cascade Hospitality Symbol</h3>
+              <p>Stylized geometric fluid icon representing movement, balance, and regional Pacific Northwest heritage.</p>
+              <a href="#contact" class="btn btn-outline" style="font-size: 0.85rem; padding: 6px 12px; width: fit-content;">Inquire About Logos</a>
+            </div>
+          </article>
+
+          <article class="portfolio-card" data-category="logos">
+            <div class="card-media">
+              <img src="assets/media/logos/logo-05.jpg" alt="Industrial equipment geometric badge logo" loading="lazy" />
+            </div>
+            <div class="card-body">
+              <span class="spec-tag">INDUSTRIAL // BADGE</span>
+              <h3>Titan Heavy Systems</h3>
+              <p>Heavy-duty industrial badge design engineered for die-stamping, tool engraving, and fleet vinyl.</p>
+              <a href="#contact" class="btn btn-outline" style="font-size: 0.85rem; padding: 6px 12px; width: fit-content;">Inquire About Logos</a>
+            </div>
+          </article>
+
+          <article class="portfolio-card" data-category="logos">
+            <div class="card-media">
+              <img src="assets/media/logos/logo-06.jpg" alt="Clean health and wellness abstract logo" loading="lazy" />
+            </div>
+            <div class="card-body">
+              <span class="spec-tag">ORGANIC // IDENTITY</span>
+              <h3>Aura Wellness Brand</h3>
+              <p>Soft botanical vector lockup paired with custom sans-serif typography for clean consumer packaging.</p>
+              <a href="#contact" class="btn btn-outline" style="font-size: 0.85rem; padding: 6px 12px; width: fit-content;">Inquire About Logos</a>
+            </div>
+          </article>
+
+          <article class="portfolio-card" data-category="logos">
+            <div class="card-media">
+              <img src="assets/media/logos/logo-07.jpg" alt="Real estate development group brand logo" loading="lazy" />
+            </div>
+            <div class="card-body">
+              <span class="spec-tag">PROPERTY // CREST</span>
+              <h3>Ironwood Residential Mark</h3>
+              <p>Architectural line-art mark designed for commercial leasing collateral, site hoardings, and entry monuments.</p>
+              <a href="#contact" class="btn btn-outline" style="font-size: 0.85rem; padding: 6px 12px; width: fit-content;">Inquire About Logos</a>
+            </div>
+          </article>
+
+          <!-- ================= PRINT COLLATERAL (8 Items) ================= -->
+          <article class="portfolio-card" data-category="print">
+            <div class="card-media">
+              <img src="assets/media/print/print-01.jpg" alt="Trade show exhibition booth backdrop and banner graphics" loading="lazy" />
+            </div>
+            <div class="card-body">
+              <span class="spec-tag">LARGE FORMAT // EXHIBITION</span>
+              <h3>Expo 2026 Display Pavilion</h3>
+              <p>Large-format convention trade show backdrop and hanging signage calibrated for CMYK high-resolution print.</p>
+              <a href="#contact" class="btn btn-outline" style="font-size: 0.85rem; padding: 6px 12px; width: fit-content;">Inquire About Print</a>
+            </div>
+          </article>
+
+          <article class="portfolio-card" data-category="print">
+            <div class="card-media">
+              <img src="assets/media/print/print-02.jpg" alt="Luxury retail packaging box and unboxing print suite" loading="lazy" />
+            </div>
+            <div class="card-body">
+              <span class="spec-tag">PACKAGING // DIE-CUT</span>
+              <h3>Artisan Unboxing Suite</h3>
+              <p>Custom structural dieline design featuring foil stamping, spot UV finishes, and tactile uncoated paper stock.</p>
+              <a href="#contact" class="btn btn-outline" style="font-size: 0.85rem; padding: 6px 12px; width: fit-content;">Inquire About Print</a>
+            </div>
+          </article>
+
+          <article class="portfolio-card" data-category="print">
+            <div class="card-media">
+              <img src="assets/media/print/print-03.jpg" alt="Annual financial corporate report brochure spread" loading="lazy" />
+            </div>
+            <div class="card-body">
+              <span class="spec-tag">EDITORIAL // 48-PAGE SPREAD</span>
+              <h3>Corporate Annual Report</h3>
+              <p>Grid-aligned editorial publication uniting quarterly balance sheets with high-end executive portraiture.</p>
+              <a href="#contact" class="btn btn-outline" style="font-size: 0.85rem; padding: 6px 12px; width: fit-content;">Inquire About Print</a>
+            </div>
+          </article>
+
+          <article class="portfolio-card" data-category="print">
+            <div class="card-media">
+              <img src="assets/media/print/print-04.jpg" alt="Commercial property leasing marketing brochure" loading="lazy" />
+            </div>
+            <div class="card-body">
+              <span class="spec-tag">BROCHURE // ACCORDION FOLD</span>
+              <h3>Commercial Leasing Guide</h3>
+              <p>Multi-panel gatefold sales brochure with integrated architectural floor plans and neighborhood transit maps.</p>
+              <a href="#contact" class="btn btn-outline" style="font-size: 0.85rem; padding: 6px 12px; width: fit-content;">Inquire About Print</a>
+            </div>
+          </article>
+
+          <article class="portfolio-card" data-category="print">
+            <div class="card-media">
+              <img src="assets/media/print/print-05.jpg" alt="Premium embossed corporate business cards and stationery" loading="lazy" />
+            </div>
+            <div class="card-body">
+              <span class="spec-tag">STATIONERY // LETTERPRESS</span>
+              <h3>Executive Identity System</h3>
+              <p>Double-thick 32pt duplex cotton business cards with blind debossing, edge painting, and matching letterheads.</p>
+              <a href="#contact" class="btn btn-outline" style="font-size: 0.85rem; padding: 6px 12px; width: fit-content;">Inquire About Print</a>
+            </div>
+          </article>
+
+          <article class="portfolio-card" data-category="print">
+            <div class="card-media">
+              <img src="assets/media/print/print-06.jpg" alt="Product line catalog with photo grid layouts" loading="lazy" />
+            </div>
+            <div class="card-body">
+              <span class="spec-tag">CATALOG // PREPRESS</span>
+              <h3>Full-Line Product Catalog</h3>
+              <p>Comprehensive wholesale buyers catalog with organized product spec matrices and studio photography.</p>
+              <a href="#contact" class="btn btn-outline" style="font-size: 0.85rem; padding: 6px 12px; width: fit-content;">Inquire About Print</a>
+            </div>
+          </article>
+
+          <article class="portfolio-card" data-category="print">
+            <div class="card-media">
+              <img src="assets/media/print/print-07.jpg" alt="Retail storefront window vinyl and environmental signage" loading="lazy" />
+            </div>
+            <div class="card-body">
+              <span class="spec-tag">SIGNAGE // WAYFINDING</span>
+              <h3>Storefront Wayfinding Suite</h3>
+              <p>Interior directional signage, frosted privacy vinyl patterns, and exterior dimensional building markers.</p>
+              <a href="#contact" class="btn btn-outline" style="font-size: 0.85rem; padding: 6px 12px; width: fit-content;">Inquire About Print</a>
+            </div>
+          </article>
+
+          <article class="portfolio-card" data-category="print">
+            <div class="card-media">
+              <img src="assets/media/print/print-08.jpg" alt="Special event invitation suite with foil stamping" loading="lazy" />
+            </div>
+            <div class="card-body">
+              <span class="spec-tag">EVENT // SPECIALTY FINISH</span>
+              <h3>Gala Invitation Suite</h3>
+              <p>Formal invitation package including die-cut outer jackets, metallic copper foil detailing, and custom RSVP inserts.</p>
+              <a href="#contact" class="btn btn-outline" style="font-size: 0.85rem; padding: 6px 12px; width: fit-content;">Inquire About Print</a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section with Resume and Profile Image -->
+    <section id="about">
+      <div class="container">
+        <div class="about-grid">
+          <div class="about-image-wrap">
+            <!-- Profile Picture from assets/about/ -->
+            <img src="assets/about/profile.jpg" alt="Portrait of graphic designer Morgan McConnell" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'320\' height=\'380\' viewBox=\'0 0 320 380\'%3E%3Crect fill=\'%2314171f\' width=\'320\' height=\'380\'/%3E%3Ctext fill=\'%23a2aab8\' font-family=\'sans-serif\' font-size=\'16\' x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\'%3EProfile Photo%3C/text%3E%3C/svg%3E'" />
+            <div class="about-meta">
+              <a href="assets/documents/resume.pdf" class="btn btn-outline" style="width: 100%; font-size: 0.88rem;" download>
+                Download Morgan's Resume
+              </a>
+            </div>
+          </div>
+
+          <div class="about-text">
+            <h2 class="section-title">Senior Creative Precision</h2>
+            <p class="section-subtitle">Over 15 years translating business concepts into memorable design.</p>
+            <p>
+              Morgan McConnell combines meticulous aesthetic intuition with production discipline. Having led creative executions across enterprise technology, retail, software, and consumer goods, he develops systems that elevate market perception while directly improving audience response.
+            </p>
+            <p>
+              His background spans foundational brand identity, conversion-focused UI/UX layouts, and technical prepress execution for high-run publications and packaging.
+            </p>
+
+            <div class="credentials-box">
+              <h4>Academic Credentials</h4>
+              <ul>
+                <li><strong>Bachelor of Arts (B.A.) in Communication Design</strong> — <em>Texas State University</em></li>
+                <li><strong>Associate of Applied Science (A.A.S.) in Visual Communication</strong> — <em>Austin Community College</em></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Qualified Lead Generation Section with Email and LinkedIn Buttons -->
+    <section id="contact">
+      <div class="container">
+        <div class="lead-section">
+          <div>
+            <div class="status-badge" role="status">
+              <span class="status-dot" aria-hidden="true"></span>
+              Booking Freelance Projects
+            </div>
+            <h2 class="section-title">Initiate a Design Project</h2>
+            <p class="section-subtitle" style="margin-bottom: 1.5rem;">
+              Direct engagement. Submit your project requirements to receive a formal proposal and availability timeline within 24–48 hours.
+            </p>
+
+            <!-- Social Media & Contact Links -->
+            <div class="social-bar" aria-label="Direct Contact Links">
+              <a href="https://www.linkedin.com/in/morgan-mcconnell-71b52313/" class="social-btn" target="_blank" rel="noopener noreferrer">
+                <!-- LinkedIn Icon (External file with inline fallback) -->
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                </svg>
+                LinkedIn
+              </a>
+
+              <a href="mailto:contact@morganmcconnell.com" class="social-btn">
+                <!-- Email Placeholder Icon (Scalable, accessible vector SVG) -->
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                </svg>
+                Direct Email
+              </a>
+            </div>
+          </div>
+
+          <!-- Formspree Lead Form -->
+          <form class="inquiry-form" action="https://formspree.io/f/xbjnbkzl" method="POST" aria-label="Project Inquiry Form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="client-name">Your Full Name</label>
+                <input type="text" id="client-name" name="name" placeholder="Sarah Jenkins" required autocomplete="name" />
+              </div>
+              <div class="form-group">
+                <label for="client-email">Work Email</label>
+                <input type="email" id="client-email" name="_replyto" placeholder="sarah@company.com" required autocomplete="email" />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="service-type">Project Discipline</label>
+                <select id="service-type" name="service" required>
+                  <option value="Logo & Brand Identity">Logo Design & Brand Identity</option>
+                  <option value="Digital Media & UI">Digital Media & Web UI</option>
+                  <option value="Print Collateral & Packaging">Print Collateral & Packaging</option>
+                  <option value="Freelance Contract / Retainer">Ongoing Freelance / Retainer</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="budget-range">Estimated Budget</label>
+                <select id="budget-range" name="budget">
+                  <option value="$2,500 - $5,000">$2,500 – $5,000</option>
+                  <option value="$5,000 - $10,000">$5,000 – $10,000</option>
+                  <option value="$10,000+">$10,000+</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="project-notes">Scope Details & Target Timeline</label>
+              <textarea id="project-notes" name="message" placeholder="Provide a summary of required deliverables, brand goals, and preferred launch dates..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%; padding: 14px; font-size: 1rem;">
+              Send Inquiry
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Accessible Footer -->
+  <footer role="contentinfo">
+    <div class="container">
+      <p>&copy; <span id="year"></span> Morgan McConnell. All rights reserved. Senior Graphic Designer available for freelance commissions.</p>
+    </div>
+  </footer>
+
+  <!-- Filter Script with ARIA State Synchronization -->
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const buttons = document.querySelectorAll('.filter-btn');
+    const cards = document.querySelectorAll('.portfolio-card');
+
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        buttons.forEach(b => {
+          b.classList.remove('active');
+          b.setAttribute('aria-selected', 'false');
+        });
+        btn.classList.add('active');
+        btn.setAttribute('aria-selected', 'true');
+
+        const filter = btn.getAttribute('data-filter');
+        cards.forEach(card => {
+          if (filter === 'all' || card.getAttribute('data-category') === filter) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
